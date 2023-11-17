@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRUD Java Web</title>
+    <link
+      href="/webjars/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2>Daftar Pelanggan</h2>
+      <a th:href="@{'/add'}" class="btn btn-primary">Tambah pelanggan</a>
+      <div class="row">
+        <div class="col">
+          <table class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Umur</th>
+                <th scope="col">Pekerjaan</th>
+                <th scope="col">Penghasilan</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="pelanggan : ${pelanggans}">
+                <td class="align-middle" th:text="${pelanggan.id}"></td>
+                <td class="align-middle" th:text="${pelanggan.Nama}"></td>
+                <td class="align-middle" th:text="${pelanggan.alamat}"></td>
+                <td
+                  class="align-middle"
+                  th:text="${pelanggan.jenis_kelamin}"
+                ></td>
+                <td class="align-middle" th:text="${pelanggan.umur}"></td>
+                <td class="align-middle" th:text="${pelanggan.pekerjaan}"></td>
+                <td
+                  class="align-middle"
+                  th:text="${pelanggan.penghasilan}"
+                ></td>
+                <td>
+                  <a
+                    th:href="@{'/edit/'} + ${pelanggan.id}"
+                    class="btn btn-warning btn-sm"
+                    >Edit</a
+                  >
+                  <a
+                    th:href="@{'/delete/'} + ${pelanggan.id}"
+                    class="btn btn-danger btn-sm"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="/webjars/bootstrap/js/bootstrap.bundel.min.js"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>
